@@ -1,6 +1,20 @@
-# COGENT Research Artifact Access
+# COGENT: An AI-Powered Adaptive Malware Research Artifact
 
-This repository provides the public research-access mechanism for the research artifact associated with **COGENT: A Framework for Studying LLM-Guided Adaptive Evasion in Endpoint Security**.
+This repository provides the public research-access mechanism for the research artifact associated with **COGENT: A Framework for Studying LLM-Guided Adaptive Evasion in Endpoint Security**, presented at the **2026 IEEE International Conference on Cyber Security and Resilience (IEEE CSR 2026)** in Lisbon, Portugal.
+
+## About COGENT
+
+COGENT is an experimental AI-powered adaptive malware research prototype developed to study autonomous endpoint-security evasion in controlled environments. It integrates a large language model (LLM) into its runtime decision loop, enabling the malware to analyze an abstracted fingerprint of the deployed defenses, rank candidate evasion strategies from a fixed and predefined technique library, and select fallback options when an attempted strategy is unsuccessful. The LLM also guides semantics-preserving metamorphic transformations intended to vary the malware's syntactic structure without changing its functional behavior.
+
+COGENT is considered AI-powered because the LLM directly informs its context-aware evasion decisions and continuous mutation process. The system combines four stages: environmental fingerprinting, LLM-guided strategy selection, monitored execution with fallback selection, and continuous metamorphic mutation. This closed-loop design enables the malware to adapt its behavior to observed defensive characteristics during an authorized experiment, while restricting its available actions to the predefined technique library.
+
+The accompanying study evaluates COGENT against 15 endpoint-security products in isolated Windows virtual machines. COGENT is a research prototype intended to help security researchers assess defensive limitations and develop more resilient detection methods. It is not intended for operational deployment or use against production or third-party systems.
+
+## Authors and Contact
+
+- **Ayman Kanso** - Electrical and Computer Engineering, American University of Beirut - [ahk69@mail.aub.edu](mailto:ahk69@mail.aub.edu)
+- **Hussein Bakri** - Electrical and Computer Engineering, American University of Beirut - [hb102@aub.edu.lb](mailto:hb102@aub.edu.lb)
+- **Ali Chehab** - Electrical and Computer Engineering, American University of Beirut - [chehab@aub.edu.lb](mailto:chehab@aub.edu.lb)
 
 ## Purpose
 
@@ -44,3 +58,19 @@ Access may be declined or withdrawn if a request falls outside these conditions.
 ## Review and Reproducibility
 
 This access mechanism documents how the COGENT research artifact may be obtained for controlled scholarly evaluation while avoiding unrestricted publication of dual-use components. Requests related to peer review or independent reproducibility are handled through the same controlled process.
+
+## Citation
+
+> A. Kanso, H. Bakri, A. Chehab, and A. Al-Azwar, "COGENT: A Framework for Studying LLM-Guided Adaptive Evasion in Endpoint Security,"
+
+```bibtex
+@inproceedings{kanso2026cogent,
+  author    = {Kanso, Ayman and Bakri, Hussein and Chehab, Ali and Al-Azwar, Ali},
+  title     = {{COGENT}: A Framework for Studying {LLM}-Guided Adaptive Evasion in Endpoint Security},
+  booktitle = {2026 IEEE International Conference on Cyber Security and Resilience (CSR)},
+  year      = {2026},
+  month     = aug,
+  address   = {Lisbon, Portugal},
+  publisher = {IEEE}
+}
+```
