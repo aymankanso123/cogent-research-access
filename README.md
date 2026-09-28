@@ -24,7 +24,7 @@ Qualified researchers may request access for legitimate academic, defensive-secu
 
 ## Requesting Access
 
-Qualified researchers seeking a controlled executable build of the COGENT research artifact should contact the maintainers privately at [ahk69@mail.aub.edu](mailto:ahk69@mail.aub.edu). The request should include:
+Qualified researchers seeking access to both the COGENT source code and a controlled executable build should contact the maintainers privately at [ahk69@mail.aub.edu](mailto:ahk69@mail.aub.edu). The request should include:
 
 - the requester's full name and institutional affiliation;
 - an institutional or professional email address;
@@ -33,11 +33,11 @@ Qualified researchers seeking a controlled executable build of the COGENT resear
 - the planned experimental environment and safeguards; and
 - confirmation that the artifact will be used only in isolated, authorized environments and will not be redistributed.
 
-Before any executable is provided, the maintainers will verify the requester's identity, institutional affiliation, and research status. Verification may include confirming an institutional email address and reviewing public institutional or publication profiles. A controlled executable build may be provided only after successful verification and approval. Submitting a request does not guarantee access, and additional institutional authorization may be required when necessary.
+Before the source code and executable are provided, the maintainers will verify the requester's identity, institutional affiliation, and research status. Verification may include confirming an institutional email address and reviewing public institutional or publication profiles. Both the source code and a controlled executable build may be provided after successful verification and approval. Submitting a request does not guarantee access, and additional institutional authorization may be required when necessary.
 
-## Executable and OpenAI API Requirement
+## Available Research Materials and OpenAI API Requirement
 
-Following approval and verification, an eligible researcher may be provided with a controlled executable build of the COGENT research artifact. The executable requires the researcher to use an OpenAI API key associated with the researcher's own authorized OpenAI account or project.
+Following approval and verification, an eligible researcher may be provided with both the COGENT source code and a controlled executable build. Use of the artifact requires the researcher to supply an OpenAI API key associated with the researcher's own authorized OpenAI account or project.
 
 ## Public Repository Scope
 
