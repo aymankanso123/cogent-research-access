@@ -6,9 +6,18 @@ This repository provides the public research-access mechanism for the research a
 
 COGENT is an experimental AI-powered adaptive malware research prototype developed to study autonomous endpoint-security evasion in controlled environments. It integrates a large language model (LLM) into its runtime decision loop, enabling the malware to analyze an abstracted fingerprint of the deployed defenses, rank candidate evasion strategies from a fixed and predefined technique library, and select fallback options when an attempted strategy is unsuccessful. The LLM also guides semantics-preserving metamorphic transformations intended to vary the malware's syntactic structure without changing its functional behavior.
 
-COGENT is considered AI-powered because the LLM directly informs its context-aware evasion decisions and continuous mutation process. The system combines four stages: environmental fingerprinting, LLM-guided strategy selection, monitored execution with fallback selection, and continuous metamorphic mutation. This closed-loop design enables the malware to adapt its behavior to observed defensive characteristics during an authorized experiment, while restricting its available actions to the predefined technique library.
+COGENT is considered AI-powered because the LLM directly informs its context-aware evasion decisions and continuous mutation process. Its operation is organized into four phases:
 
-The accompanying study evaluates COGENT against 15 endpoint-security products in isolated Windows virtual machines. COGENT is a research prototype intended to help security researchers assess defensive limitations and develop more resilient detection methods. It is not intended for operational deployment or use against production or third-party systems.
+1. **Environmental fingerprinting:** COGENT observes security-relevant processes, drivers, and instrumentation indicators to construct an abstracted profile of the endpoint's defensive environment.
+2. **LLM-guided strategy selection:** The defensive profile is analyzed by the LLM, which ranks a primary evasion strategy and fallback alternatives from COGENT's fixed library of techniques.
+3. **Adaptive execution:** COGENT applies the selected strategy, records whether execution succeeds or is disrupted by the security product, and proceeds to a fallback strategy when necessary.
+4. **Continuous metamorphic mutation:** Following successful execution, the LLM guides semantics-preserving code transformations that change the program's syntactic structure while retaining its intended experimental behavior.
+
+## Evaluation Summary
+
+The accompanying study evaluated COGENT against 15 endpoint-security products: **Windows Defender, Kaspersky, Bitdefender, Sophos, ESET NOD32, Trend Micro, Avast, AVG, Avira, Malwarebytes, Comodo, G Data, F-Secure, Norton, and Panda**. Under the reported experimental conditions, COGENT achieved successful evasion across all 15 products by establishing the controlled payload and remaining undetected throughout the 30-minute observation window.
+
+This result is limited to the configurations and conditions evaluated in the study, including isolated Windows virtual machines and default product settings. It should not be interpreted as evidence of universal evasion across configurations or enterprise deployments. COGENT is a research prototype intended to help security researchers assess defensive limitations and develop more resilient detection methods. It is not intended for operational deployment or use against production or third-party systems.
 
 ## Authors and Contact
 
