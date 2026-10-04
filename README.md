@@ -13,11 +13,64 @@ COGENT is considered AI-powered because the LLM directly informs its context-awa
 3. **Adaptive execution:** COGENT applies the selected strategy, records whether execution succeeds or is disrupted by the security product, and proceeds to a fallback strategy when necessary.
 4. **Continuous metamorphic mutation:** Following successful execution, the LLM guides semantics-preserving code transformations that change the program's syntactic structure while retaining its intended experimental behavior.
 
+## Technique Library and Threat Model
+
+COGENT operates within a fixed and curated library of **39 implemented evasion techniques**. This library defines the system's available action space. The LLM ranks and selects from these predefined techniques according to the observed defensive environment; it does not invent new evasion primitives or introduce unrestricted malicious functionality. COGENT's AI component is therefore responsible for adaptive orchestration and mutation rather than for creating new capabilities.
+
+The technique library described in the paper contains:
+
+| No. | Technique | No. | Technique |
+| ---: | --- | ---: | --- |
+| 1 | Direct syscalls | 21 | Thread hijacking |
+| 2 | AMSI bypass | 22 | Module stomping |
+| 3 | ETW patching | 23 | Process ghosting |
+| 4 | API unhooking | 24 | Process herpaderping |
+| 5 | Process injection | 25 | Early Bird APC |
+| 6 | DLL injection | 26 | Phantom DLL hollowing |
+| 7 | Process hollowing | 27 | Transacted hollowing |
+| 8 | Reflective DLL | 28 | PROPagate injection |
+| 9 | APC injection | 29 | Section-mapping injection |
+| 10 | Code cave | 30 | Fibers execution |
+| 11 | IAT hooking | 31 | Exception hijacking |
+| 12 | API hooking | 32 | PPID spoofing |
+| 13 | Shellcode injection | 33 | Process hollowing (RunPE implementation) |
+| 14 | PE injection | 34 | Extra Window Memory Injection |
+| 15 | Call-stack gadget insertion | 35 | Mockingjay |
+| 16 | Callback injection | 36 | Dirty Vanity |
+| 17 | APC dispatcher manipulation | 37 | Thread-pool injection |
+| 18 | Heaven's Gate | 38 | Stack spoofing |
+| 19 | Process doppelganging | 39 | Sleep obfuscation |
+| 20 | Atom bombing |  |  |
+
+
+The threat model assumes that initial user-level code execution has already been obtained on a Windows 10 or Windows 11 endpoint and that sufficient network connectivity is available to access the external LLM API. COGENT operates with user-level privileges and does not require administrative access. Initial compromise, malware delivery, and the process used to obtain execution are outside the scope of the study.
+
 ## Evaluation Summary
 
 The accompanying study evaluated COGENT against 15 endpoint-security products: **Windows Defender, Kaspersky, Bitdefender, Sophos, ESET NOD32, Trend Micro, Avast, AVG, Avira, Malwarebytes, Comodo, G Data, F-Secure, Norton, and Panda**. Under the reported experimental conditions, COGENT achieved successful evasion across all 15 products by establishing the controlled payload and remaining undetected throughout the 30-minute observation window.
 
 This result is limited to the configurations and conditions evaluated in the study, including isolated Windows virtual machines and default product settings. It should not be interpreted as evidence of universal evasion across configurations or enterprise deployments. COGENT is a research prototype intended to help security researchers assess defensive limitations and develop more resilient detection methods. It is not intended for operational deployment or use against production or third-party systems.
+
+## Detailed Results
+
+Each of the 15 endpoint-security products was evaluated across five independent runs for both the non-adaptive baseline and COGENT, producing 75 runs per condition. Detection was defined as any observable defensive action, including alert generation, process termination, quarantine, or prevention of payload execution.
+
+| Metric | Non-adaptive baseline | COGENT |
+| --- | ---: | ---: |
+| Total runs | 75 | 75 |
+| Median detection time | 3.2 seconds | No detection within the observation window |
+| Mean detection time | 4.1 seconds | No detection within the observation window |
+| Detection-time range | 1.8-8.4 seconds | No detection within the observation window |
+| Detected within 5 seconds | 68/75 (91%) | 0/75 (0%) |
+| Detected within 15 seconds | 75/75 (100%) | 0/75 (0%) |
+| Active beyond 5 minutes | 0/75 (0%) | 75/75 (100%) |
+| Active through the 30-minute window | 0/75 (0%) | 75/75 (100%) |
+
+COGENT reached operational status in a reported median of 11.1 seconds. The Phase 2 LLM queries introduced a median latency of 3.8 seconds due to network communication and model inference.
+
+Each COGENT instance completed three metamorphic mutation cycles during the observation window, with one cycle occurring every 10 minutes. The LLM-guided mutations preserved the intended functional behavior.
+
+These findings show that, within the documented experimental environment, LLM-guided strategy selection and continuous mutation materially changed detection outcomes relative to the non-adaptive baseline. The results remain specific to the tested configurations and 30-minute observation period.
 
 ## Authors and Contact
 
