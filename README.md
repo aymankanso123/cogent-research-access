@@ -123,16 +123,19 @@ This access mechanism documents how the COGENT research artifact may be obtained
 
 ## Citation
 
-> A. Kanso, H. Bakri, A. Chehab, and A. Al-Azwar, "COGENT: A Framework for Studying LLM-Guided Adaptive Evasion in Endpoint Security,"
+Read the paper on [IEEE Xplore](https://ieeexplore.ieee.org/document/11760091).
+
+> A. Kanso, H. Bakri, A. Chehab, and A. Al-Azwar, "COGENT: A Framework for Studying LLM-Guided Adaptive Evasion in Endpoint Security," in *2026 IEEE International Conference on Cyber Security and Resilience (CSR)*, 2026, pp. 256–262, doi: [10.1109/CSR69374.2026.11760091](https://doi.org/10.1109/CSR69374.2026.11760091).
 
 ```bibtex
-@inproceedings{kanso2026cogent,
+@inproceedings{11760091,
   author    = {Kanso, Ayman and Bakri, Hussein and Chehab, Ali and Al-Azwar, Ali},
   title     = {{COGENT}: A Framework for Studying {LLM}-Guided Adaptive Evasion in Endpoint Security},
   booktitle = {2026 IEEE International Conference on Cyber Security and Resilience (CSR)},
   year      = {2026},
-  month     = aug,
-  address   = {Lisbon, Portugal},
-  publisher = {IEEE}
+  pages     = {256--262},
+  keywords  = {Large language models;Modeling;Signal detection;Printing;Security;Malware;Codes;Windows;Runtime;Fingerprint recognition;adaptive mutation;autonomous adaptive malware;defensive fingerprinting;endpoint security evasion;large language models;metamorphic malware},
+  doi       = {10.1109/CSR69374.2026.11760091},
+  url       = {https://ieeexplore.ieee.org/document/11760091}
 }
 ```
